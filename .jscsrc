@@ -21,7 +21,7 @@
     "allExcept": [ "comments", "functionSignature", "regex", "urlComments" ]
   },
   "validateIndentation": 2,
-  "validateQuoteMarks": "\"",
+  "validateQuoteMarks": "'",
   "validateLineBreaks": "LF",
 
   "disallowMultipleLineStrings": true,

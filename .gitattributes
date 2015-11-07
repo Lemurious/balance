@@ -4,6 +4,7 @@
 *.htm eol=lf
 *.js eol=lf
 *.json eol=lf
+*.js* eol=lf
 *.md eol=lf
 *.txt eol=lf
 *.xml eol=lf
