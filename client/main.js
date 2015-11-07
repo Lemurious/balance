@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Controls from './components/controls/controls.js';
 import Content from './components/content/content.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import './main.css';
 
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import BalanceTheme from './theme.js';
