@@ -16,7 +16,6 @@ var Content = React.createClass({
           } />
       );
     });
-    console.log(this.props.transactions.slice(0,5))
     return (
       <div id="content">
         <div id="history">
