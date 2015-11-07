@@ -7,21 +7,9 @@ var Controls = React.createClass({
   getInitialState: function() {
     return {
       data: [
-        {
-           type: MenuItem.Types.LINK,
-           payload: '#history',
-           text: 'History'
-        },
-        {
-           type: MenuItem.Types.LINK,
-           payload: '#budgets',
-           text: 'Budgets'
-        },
-        {
-           type: MenuItem.Types.LINK,
-           payload: '#goals',
-           text: 'Goals'
-        },
+        { text: 'History' },
+        { text: 'Budgets' },
+        { text: 'Goals' }
       ]
     };
   },
