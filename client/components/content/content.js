@@ -1,6 +1,6 @@
 import React from 'react';
-import LinearProgress from 'material-ui/lib/linear-progress'
-import moment from 'moment'
+import BudgetsView from './budgets/budgets.js';
+
 
 var Content = React.createClass({
   render: function() {
@@ -12,9 +12,7 @@ var Content = React.createClass({
         </div>
         <div id="budgets">
           <h1>Budgets</h1>
-          <h2>{moment().format('MMMM YY')}</h2>
-          <label>Total</label>
-          <LinearProgress mode="determinate" value={60} />
+          <BudgetsView />
         </div>
         <div id="goals">
           <h1>Goals</h1>
