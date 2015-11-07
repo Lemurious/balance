@@ -3,6 +3,10 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+#content {
+  margin: 16px;
+}
+
 .account-info {
   float: right;
   margin-top: -60px;
