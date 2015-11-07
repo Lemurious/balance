@@ -8,3 +8,4 @@
 *.md eol=lf
 *.txt eol=lf
 *.xml eol=lf
+.*
