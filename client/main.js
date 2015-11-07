@@ -4,12 +4,25 @@ import Header from './components/header/header.js';
 import Navigation from './components/navigation/navigation.js';
 import Content from './components/content/content.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import './main.css';
+
+import ThemeManager from 'material-ui/lib/styles/theme-manager';
+import BalanceTheme from './theme.js';
 
 injectTapEventPlugin();
 console.log(Navigation)
 
 var App = React.createClass({
+  //the key passed through context must be called "muiTheme"
+  childContextTypes : {
+    muiTheme: React.PropTypes.object,
+  },
+
+  getChildContext() {
+    return {
+      muiTheme: ThemeManager.getMuiTheme(BalanceTheme),
+    };
+  },
+
   render() {
     return (
       <div className="app">
