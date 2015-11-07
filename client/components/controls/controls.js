@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react';
+import AppBar from 'material-ui/lib/app-bar'
 import LeftNav from 'material-ui/lib/left-nav'
 import MenuItem from 'material-ui/lib/menu/menu-item'
 
-var Navigation = React.createClass({
+var Controls = React.createClass({
   getInitialState: function() {
     return {
       data: [
@@ -24,14 +25,23 @@ var Navigation = React.createClass({
       ]
     };
   },
+  onHeaderClick: function() {
+    this.refs.leftNav.toggle()
+  },
   render: function() {
     return (
-      <LeftNav
-        ref="leftNav"
-        menuItems={this.state.data}
-        docked={false} />
+      <div id="controls">
+        <AppBar
+          title="Balance"
+          iconClassNameRight="muidocs-icon-navigation-expand-more"
+          onClick={this.onHeaderClick} />
+        <LeftNav
+            ref="leftNav"
+            menuItems={this.state.data}
+            docked={false} />
+      </div>
     )
-  }
-});
+  } 
+})
 
-module.exports = Navigation
+module.exports = Controls
