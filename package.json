@@ -11,6 +11,8 @@
   "repository": "https://github.com/Lemurious/balance",
   "dependencies": {
     "express": "^4.13.3",
+    "serve-favicon": "^2.3.0",
+    "react": "^0.14.2",
     "material-ui": "^0.13.1",
     "react": "^0.14.2",
     "react-addons-create-fragment": "^0.14.2",
@@ -24,6 +26,9 @@
     "babel-core": "^5.6.15",
     "babel-loader": "^5.3.1",
     "css-loader": "^0.22.0",
+    "errorhandler": "^1.4.2",
+    "forever": "^0.15.1",
+    "morgan": "^1.6.1",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.3"
   },
@@ -31,6 +36,9 @@
   "license": "proprietary",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --progress --colors --watch"
+    "watch": "webpack --progress --colors --watch",
+    "start": "node index.js",
+    "server": "node index.js",
+    "watch-server": "forever --watch --watchDirectory server server/index.js"
   }
 }
