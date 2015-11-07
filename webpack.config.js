@@ -9,7 +9,7 @@ var config = {
   },
   module: {
     loaders: [{
-      test: /\.jsx?$/,
+      test: /\.js?$/,
       loader: 'babel',
       exclude: node_modules
     }, {

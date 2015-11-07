@@ -1,8 +1,22 @@
 import React from 'react';
-import Header from './components/header/header.jsx';
+import Header from './components/header/header.js';
+import Navigation from './components/navigation/navigation.js';
+import Content from './components/content/content.js';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div class="app">
+        <Header />
+        <Navigation />
+        <Content />
+      </div>
+    )
+  }
+}
 
 main();
 
 function main() {
-  React.render(<Header />, document.getElementById('header'));
+  React.render(<App />, document.getElementById('app'));
 }
