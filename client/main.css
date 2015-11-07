@@ -9,7 +9,8 @@ body {
 
 .account-info {
   float: right;
-  margin-top: -40px;
+  text-align: right;
+  margin-top: -50px;
   margin-right: 2%;
   color: white;
 }
@@ -24,6 +25,10 @@ body {
   margin-top: 100px;
 }
 
+.overall-balance {
+  display: block;
+}
+
 .logo {
   display: block;
   background:url('./assets/images/app-icon-64.png');
@@ -33,5 +38,13 @@ body {
   width:40px;
   margin-top:-10px;
   margin-left:-5px;
+}
+
+.pos {
+  color: #4F8A10 !important;
+}
+
+.neg {
+  color: #D8000C !important;
 }
 

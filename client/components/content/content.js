@@ -35,11 +35,14 @@ var Content = React.createClass({
     ]
     var transactions = this.props.transactions.slice(0, 5)
     var transactionList = transactions.map(function(item) {
+      var secondaryTextClass = item.amount > 0 ? 'pos' : 'neg';
       return (
         <ListItem
           primaryText={item.description}
           secondaryText={
-            <span>{item.amount} {item.currency}</span>
+            <span className={secondaryTextClass}>
+              {item.amount} {item.currency}
+            </span>
           } />
       );
     });

@@ -62,6 +62,13 @@ var App = React.createClass({
         </span>
       )
     } else {
+      var accountsBalance = [];
+      this.state.data.accounts.forEach(function(item) {
+        accountsBalance.push(item.account.availableBalance)
+      })
+      var overallBalance = accountsBalance.reduce(function(previous, current) {
+        return previous + current;
+      })
       content = (
         <span>
           <span className="account-info">
@@ -72,6 +79,9 @@ var App = React.createClass({
               &nbsp;
               <span className="lastName">
                 {this.state.data.user.lastName}
+              </span>
+              <span className="overall-balance">
+                {overallBalance} EUR
               </span>
             </span>
           </span>
