@@ -1,5 +1,9 @@
+# Project files
+node_modules
+tmp/*
+build/*
+
+# Temporary files
 *.tmp
 Thumbs.db
 ethumbs.db
-tmp/*
-build/*

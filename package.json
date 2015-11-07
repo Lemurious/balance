@@ -1,2 +1,23 @@
 {
+  "name": "balance",
+  "description": "UniCredit Appathon 2015 entry - Team Lemurious - Topic: Consumer Centric Wallet",
+  "version": "0.0.0",
+  "contributors": [
+    "Leon Adler",
+    "Federica Recanatini",
+    "Timo Kropp"
+  ],
+  "main": "index.js",
+  "repository": "https://github.com/Lemurious/balance",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.0.1",
+    "css-loader": "^0.22.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.3"
+  },
+  "private": true,
+  "license": "proprietary"
 }
