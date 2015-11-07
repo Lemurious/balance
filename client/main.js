@@ -29,12 +29,14 @@ var App = React.createClass({
       data: {}
     }
   },
+
   loadData: function() {
     $.ajax({
       url: '/api/initial-data',
       dataType: 'json',
       cache: false,
       success: function(data) {
+        console.log(data)
         this.setState({
           data: data,
           ready:true
@@ -45,10 +47,12 @@ var App = React.createClass({
       }.bind(this)
     });
   },
+
   componentDidMount: function() {
     this.loadData();
     setInterval(this.loadData, 20000);
   },
+
   render: function() {
     var content
     if (!this.state.ready) {

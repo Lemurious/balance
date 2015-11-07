@@ -9,12 +9,18 @@ body {
 
 .account-info {
   float: right;
-  margin-top: -60px;
+  margin-top: -40px;
   margin-right: 2%;
   color: white;
 }
 
 .name {
   float: right;
+}
+
+.loader {
+  text-align: center;
+  display: block;
+  margin-top: 100px;
 }
 
