@@ -12,6 +12,7 @@
   "dependencies": {
     "chart.js": "^1.0.2",
     "express": "^4.13.3",
+    "file-loader": "^0.8.4",
     "material-ui": "^0.13.1",
     "moment": "^2.10.6",
     "react": "^0.14.2",
@@ -23,7 +24,8 @@
     "react-dom": "^0.14.2",
     "react-tap-event-plugin": "^0.2.1",
     "request": "^2.65.0",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "url-loader": "^0.5.6"
   },
   "devDependencies": {
     "babel-core": "^5.6.15",

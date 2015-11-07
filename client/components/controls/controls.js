@@ -30,7 +30,7 @@ var Controls = React.createClass({
       <div id="controls">
         <AppBar
           title="Balance"
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
+          iconClassNameLeft="logo"
           onClick={this.onHeaderClick} />
         <LeftNav
             ref="leftNav"

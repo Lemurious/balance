@@ -24,3 +24,14 @@ body {
   margin-top: 100px;
 }
 
+.logo {
+  display: block;
+  background:url('./assets/logo-64.png');
+  background-size: 40px 40px;
+  background-repeat:no-repeat;
+  height:40px;
+  width:40px;
+  margin-top:-10px;
+  margin-left:-5px;
+}
+
