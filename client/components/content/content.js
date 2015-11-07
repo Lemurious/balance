@@ -4,8 +4,7 @@ import moment from 'moment'
 
 var Content = React.createClass({
   render: function() {
-    var currentMonth = 'November';
-
+    console.log(this.props.transactions)
     return (
       <div id="content">
         <div id="history">

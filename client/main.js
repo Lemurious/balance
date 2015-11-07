@@ -25,7 +25,8 @@ var App = React.createClass({
 
   getInitialState: function() {
     return {
-      ready: false
+      ready: false,
+      data: {}
     }
   },
   loadData: function() {
@@ -34,7 +35,10 @@ var App = React.createClass({
       dataType: 'json',
       cache: false,
       success: function(data) {
-        this.setState({ready:true})
+        this.setState({
+          data: data,
+          ready:true
+        })
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(err)
@@ -59,15 +63,15 @@ var App = React.createClass({
           <span className="account-info">
             <span className="name">
               <span className="firstName">
-                
+                {this.state.data.user.firstName}
               </span>
               &nbsp;
               <span className="lastName">
-                
+                {this.state.data.user.lastName}
               </span>
             </span>
           </span>
-          <Content />
+          <Content transactions={this.state.data.transactions}/>
         </span>
       )
     }

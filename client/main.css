@@ -3,23 +3,13 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-#content {
-  margin: 16px;
-}
-
 .account-info {
   float: right;
-  margin-top: -50px;
+  margin-top: -60px;
   margin-right: 2%;
 }
 
 .name {
   float: right;
-  margin-top: 2px;
 }
 
-.loader {
-  margin: 0 auto;
-  width: 50%;
-  padding: 10px;
-}
