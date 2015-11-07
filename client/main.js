@@ -12,6 +12,17 @@ var App = React.createClass({
     return (
       <div className="app">
         <Controls />
+        <span className="account-info">
+          <span className="name">
+            <span className="firstName">
+              {api.user.firstName}
+            </span>
+            &nbsp;
+            <span className="lastName">
+              {api.user.lastName}
+            </span>
+          </span>
+        </span>
         <Content />
       </div>
     )
