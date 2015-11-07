@@ -4,7 +4,7 @@ import Header from './components/header/header.js';
 import Navigation from './components/navigation/navigation.js';
 import Content from './components/content/content.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-
+import './main.css';
 
 injectTapEventPlugin();
 console.log(Navigation)
