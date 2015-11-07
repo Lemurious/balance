@@ -1,9 +1,11 @@
 import React from 'react';
+import LeftNav from 'material-ui/lib/left-nav'
 
 export default class Navigation extends React.Component {
+
   render() {
     return (
-      <h1>Navigation</h1>
+      <LeftNav ref="leftNav" menuItems={[]} />
     )
   }
 }
