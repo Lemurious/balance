@@ -3,13 +3,13 @@ module.exports = function (api) {
   api.getOneTransaction = getOneTransaction;
 };
 
-function getAllTransactions (userid, callback) {
-  this.get('/transactions/v1', {'userid': userid}, function (err, data) {
+function getAllTransactions (userId, callback) {
+  this.get('/transactions/v1', {'userId': userId}, function (err, data) {
     if (err) return callback(err);
     callback(null, data.transactions);
   });
 }
 
-function getOneTransaction (userid, transactionID, callback) {
-  this.get('/transactions/v1/' + transactionID, {'userid': userid}, callback);
+function getOneTransaction (userId, transactionID, callback) {
+  this.get('/transactions/v1/' + transactionID, {'userId': userId}, callback);
 }

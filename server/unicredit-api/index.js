@@ -53,6 +53,7 @@ var api = module.exports = {
   }
 };
 
-require('./transactions')(api);
 require('./accounts')(api);
+require('./branches')(api);
+require('./transactions')(api);
 require('./users')(api);

@@ -31,7 +31,7 @@ var App = React.createClass({
   },
   loadData: function() {
     $.ajax({
-      url: '/api/all-data.js',
+      url: '/api/initial-data',
       dataType: 'json',
       cache: false,
       success: function(data) {

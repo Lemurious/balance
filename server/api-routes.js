@@ -6,11 +6,11 @@ var api = require('./unicredit-api');
 
 module.exports = function (app) {
 
-  app.get('/api/all-data.js', function (req, res) {
-    // Get data from ALL required endpoints
+  app.get('/api/initial-data', function (req, res) {
+    // Get data from ALL initially required endpoints
     var endpoints = {
       'transactions': api.getAllTransactions.bind(api, 'mario.rossi'),
-      'accounts': api.getAllAccounts.bind(api),
+      'accounts': api.getAllAccounts.bind(api, 'mario.rossi'),
       'user': api.getCurrentUser.bind(api, 'mario.rossi')
     };
 
@@ -29,11 +29,41 @@ module.exports = function (app) {
         completed++;
 
         if (completed >= endpointCount) {
-          var answer = JSON.stringify(results);
-          res.type('json').send(answer);
+          res.type('json').send(results);
         }
       });
     });
-
   });
+
+  app.get('/api/accounts', function (req, res) {
+    api.getAllAccounts('mario.rossi', forwardSingleApiData.bind(this, res));
+  });
+
+  app.get('/api/branches', function (req, res) {
+    var query = req.query || {};
+    api.getBranchesNearby(
+      query.longitude || 0,
+      query.latitude || 0,
+      null,
+      forwardSingleApiData.bind(this, res)
+    );
+  });
+
+  app.get('/api/transactions', function (req, res) {
+    api.getAllTransactions('mario.rossi', forwardSingleApiData.bind(this, res));
+  });
+
+  app.get('/api/user', function (req, res) {
+    api.getCurrentUser('mario.rossi', forwardSingleApiData.bind(this, res));
+  });
+
+
+  function forwardSingleApiData (res, err, data) {
+    if (err) {
+      data = {'error': err};
+    }
+    res.type('json').send(data);
+  }
+
+
 };
