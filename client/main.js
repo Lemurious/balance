@@ -5,9 +5,11 @@ import Navigation from './components/navigation/navigation.js';
 import Content from './components/content/content.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-injectTapEventPlugin();
 
-class App extends React.Component {
+injectTapEventPlugin();
+console.log(Navigation)
+
+var App = React.createClass({
   render() {
     return (
       <div className="app">
@@ -17,7 +19,7 @@ class App extends React.Component {
       </div>
     )
   }
-}
+})
 
 main();
 

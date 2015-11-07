@@ -1,9 +1,21 @@
 import React from 'react';
 
-export default class Content extends React.Component {
-  render() {
+var Content = React.createClass({
+  render: function() {
     return (
-      <h1>Content</h1>
+      <div id="content">
+        <div id="history">
+          <h1>History</h1>
+        </div>
+        <div id="budgets">
+          <h1>Budgets</h1>
+        </div>
+        <div id="goals">
+          <h1>Goals</h1>
+        </div>
+      </div>
     )
-  }
-}
+  } 
+})
+
+module.exports = Content

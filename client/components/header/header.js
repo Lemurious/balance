@@ -1,9 +1,14 @@
 import React from 'react';
+import AppBar from 'material-ui/lib/app-bar'
 
-export default class Burn extends React.Component {
-  render() {
+var Header = React.createClass({
+  render: function() {
     return (
-      <h1>Header</h1>
+      <AppBar
+        title="Balance"
+        iconClassNameRight="muidocs-icon-navigation-expand-more" />
     )
   }
-}
+})
+
+module.exports = Header
