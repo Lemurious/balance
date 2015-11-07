@@ -55,3 +55,4 @@ var api = module.exports = {
 
 require('./transactions')(api);
 require('./accounts')(api);
+require('./users')(api);
