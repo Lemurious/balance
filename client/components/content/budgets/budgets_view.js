@@ -1,6 +1,6 @@
 import React from 'react';
-import LinearProgress from 'material-ui/lib/linear-progress'
 import moment from 'moment'
+import {palette} from './../../../theme.js'
 
 var TOTAL_MONTHLY_INCOMING = 4000;
 
@@ -53,9 +53,47 @@ var BudgetsView = React.createClass({
         <div className="budgets_view">
           <h2>{moment().format('MMMM YY')}</h2>
           <label>Total</label>
-          <LinearProgress mode="determinate" value={60} />
+          <div id="budgets_chart"></div>
         </div>
       )
+  },
+
+  componentDidMount: function(){
+    this.drawCharts();
+  },
+
+  componentDidUpdate: function(){
+    this.drawCharts();
+  },
+
+  drawCharts: function(){
+    var data = new google.visualization.arrayToDataTable([
+      ['', 'Used budget', 'Total budget'],
+      ['Food', 8175000, 8008000],
+      ['Housing', 3792000, 3694000],
+      ['Sport', 2695000, 2896000],
+      ['Gifts', 2099000, 1953000],
+      ['Others', 1526000, 1517000]]
+    );
+
+    var options = {
+      chartArea: {top: 200, width: '3%'},
+      legend: { position: 'none' },
+      isStacked: true,
+      hAxis: {
+        minValue: 0,
+      },
+      vAxis: {
+      },
+      bars: 'horizontal',
+      height: 400,
+      colors: [palette.accent1Color, palette.accent2Color]
+    };
+
+    var chart = new google.charts.Bar(
+      document.getElementById("budgets_chart")
+    );
+    chart.draw(data, google.charts.Bar.convertOptions(options));
   }
 })
 

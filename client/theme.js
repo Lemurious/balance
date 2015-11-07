@@ -4,7 +4,7 @@ let Spacing = require('material-ui/lib/styles/spacing');
 
 Colors.BankAustria = {
   red: '#E2001A',
-  blue: '4077B2',
+  blue: '#4077B2',
   lightGrey: '#F5F5F5',
   darkGrey: '#828282',
   grey: '#808080',

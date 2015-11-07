@@ -3,7 +3,7 @@ import LinearProgress from 'material-ui/lib/linear-progress'
 import List from 'material-ui/lib/lists/list'
 import ListItem from 'material-ui/lib/lists/list-item'
 import {Pie} from 'react-chartjs';
-import BudgetsView from './budgets/budgets.js';
+import BudgetsView from './budgets/budgets_view.js';
 
 var Content = React.createClass({
   render: function() {
