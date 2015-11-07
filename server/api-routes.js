@@ -29,8 +29,8 @@ module.exports = function (app) {
         completed++;
 
         if (completed >= endpointCount) {
-          var answer = 'var api = ' + JSON.stringify(results) + ';';
-          res.send(answer);
+          var answer = JSON.stringify(results);
+          res.type('json').send(answer);
         }
       });
     });
