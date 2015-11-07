@@ -6,6 +6,7 @@ var favicon = require('serve-favicon');
 var morgan = require('morgan');
 var http = require('http');
 var path = require('path');
+var apiRoutes = require('./api-routes');
 
 var app = module.exports = express();
 
@@ -32,7 +33,7 @@ if (env === 'production') {
 app.use('/build', express.static(path.join(__dirname, '/../build')));
 app.use('/assets', express.static(path.join(__dirname, '/../client/assets')));
 app.use(favicon(path.join(__dirname, '/../client/assets/favicon.ico')));
-
+apiRoutes(app);
 
 // Map '/' and urls like '/balance' to index.html
 app.get(/^\/[^/]*$/, function (req, res) {
