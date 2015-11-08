@@ -11,7 +11,7 @@ function getBranchesNearby (longitude, latitude, opts, callback) {
   var params = {
     x: longitude,
     y: latitude,
-    distance: (opts && opts.distance) || 10000, // Distance in meters
+    distance: (opts && opts.distance) || 250, // Distance in meters
     maxResult: (opts && opts.maxResult) || 25
   };
   this.get('/bank/v1/branches', params, function (err, data) {
