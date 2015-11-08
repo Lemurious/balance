@@ -132,7 +132,7 @@ var Content = React.createClass({
     ]
     return (
       <div id="content">
-        <div id="main-date">17.8.2015</div>
+        <div id="main-date">17.9.2015</div>
         <div id="budgets">
           <h1>Budgets</h1>
           <BudgetsView
