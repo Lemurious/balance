@@ -119,10 +119,16 @@ var BudgetsView = React.createClass({
       stacked: true,
       axes: {
         x: {
-          0: { side: 'top', format: { pattern: '# €' }}
+          0: {
+            side: 'top',
+            format: { pattern: '# €' },
+            style: {text: { fontSize: '11pt' } }
+          }
+        },
+        y: {
+          all: { style: { text: { fontSize: '12pt' } } }
         }
       },
-      vAxis: {format:'# $'},
       bars: 'horizontal'
       //colors: [palette.accent1Color, palette.accent2Color, palette.primary1Color]
     };
