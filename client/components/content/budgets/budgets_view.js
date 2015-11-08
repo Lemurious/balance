@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment'
 import {palette} from './../../../theme.js'
+import FloatingActionButton from 'material-ui/lib/floating-action-button'
 
 var TOTAL_MONTHLY_INCOMING = 4000;
 
@@ -75,6 +76,11 @@ var BudgetsView = React.createClass({
         <div className="budgets_view">
           <h2>{moment().format('MMMM YY')}</h2>
           <div id="budgets_chart"></div>
+          <div className="button_add_category">
+            <FloatingActionButton mini={true} secondary={true}>
+              <span className="button_text">+</span>
+            </FloatingActionButton>
+          </div>
         </div>
       )
   },

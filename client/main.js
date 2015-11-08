@@ -4,6 +4,7 @@ import Controls from './components/controls/controls.js';
 import Content from './components/content/content.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import CircularProgress from 'material-ui/lib/circular-progress';
+import Avatar from 'material-ui/lib/avatar';
 import './main.css';
 
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
@@ -72,6 +73,9 @@ var App = React.createClass({
       content = (
         <span>
           <span className="account-info">
+            <span className="avatar">
+              <Avatar className="avatar-image" src="assets/images/avatar_mr.png" />
+            </span>
             <span className="name">
               <span className="firstName">
                 {this.state.data.user.firstName}

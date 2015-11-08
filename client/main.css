@@ -63,3 +63,16 @@ body {
 #budgets_chart path[fill='#c0d6fb'] {
   fill: #E2001A;
 }
+
+.avatar-image {
+  margin-right: 12px;
+}
+
+.button_add_category {
+  margin-left: 44px;
+  margin-top: 26px;
+}
+
+.button_text {
+  font-size: 22pt;
+}
