@@ -10,7 +10,16 @@ import './main.css';
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import BalanceTheme from './theme.js';
 
+import Models from './models/';
+
 injectTapEventPlugin();
+
+var app = {
+  Models: Models
+}
+
+// debug TODO remove me
+window.app = app;
 
 var App = React.createClass({
   //the key passed through context must be called "muiTheme"
