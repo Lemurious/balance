@@ -74,7 +74,6 @@ var BudgetsView = React.createClass({
     return (
         <div className="budgets_view">
           <h2>{moment().format('MMMM YY')}</h2>
-          <label>Total</label>
           <div id="budgets_chart"></div>
         </div>
       )
@@ -89,7 +88,7 @@ var BudgetsView = React.createClass({
   },
 
   drawCharts: function(){
-    var raw_data = [['', 'Used budget', 'Total budget', 'Exceeding budget', { role: 'style' }]].concat(Budgets.getCategoriesData())
+    var raw_data = [['', 'Used budget', 'Total budget', 'Exceeded budget', { role: 'style' }]].concat(Budgets.getCategoriesData())
     var data = new google.visualization.arrayToDataTable(raw_data);
 
     var options = {
@@ -99,13 +98,14 @@ var BudgetsView = React.createClass({
       stacked: true,
       axes: {
         x: {
-          0: { side: 'top'},
+          0: { side: 'top', format: { pattern: '# €' }}
         }
       },
+      vAxis: {format:'# $'},
       bars: 'horizontal'
       //colors: [palette.accent1Color, palette.accent2Color, palette.primary1Color]
     };
-
+    //console.log(google.charts.Bar.convertOptions(options))
     var chart = new google.charts.Bar(
       document.getElementById("budgets_chart")
     );
