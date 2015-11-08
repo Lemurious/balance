@@ -3,9 +3,9 @@ import moment from 'moment'
 import {palette} from './../../../theme.js'
 import FloatingActionButton from 'material-ui/lib/floating-action-button'
 import Dialog from 'material-ui/lib/dialog'
+import DatePicker from 'material-ui/lib/date-picker'
 
 var TOTAL_MONTHLY_INCOMING = 4000;
-
 var defaultCategoriesNames = ["Housing", "Food", "Entertainment", "Clothing", "Transportation", "Gifts"]
 
 var TOTAL_BY_CATEGORY_STUB = {
@@ -66,25 +66,28 @@ var Budgets = {
   },
 
   init: function(categories, transactions) {
+    var totalBudget = [6000, 3000, 5500, 10000, 8000, 9000, 3000, 5000];
+
     for(var i in categories) {
       var category = categories[i]
       var curTrans = [];
 
       transactions.filter(function (el) {
-        if(el.category == category.id) {
+        if(el.category == category.id &&
+          Date.parse('2015-09-01') < Date.parse(el.valueDate) &&
+          Date.parse('2015-10-01') > Date.parse(el.valueDate)) {
           curTrans.push(el);
         }
       })
 
-      var totalBudget = 800;
       var usedBudget = 0;
-      for(var i in curTrans) {
-        var curTran = curTrans[i]
+      for(var j in curTrans) {
+        var curTran = curTrans[j]
         if(curTran.amount < 0) {
           usedBudget += (-1) * curTran.amount;
         }
       }
-      Budgets.byCategories[category.name] = new CategoryBudget(category.name, totalBudget, usedBudget)
+      Budgets.byCategories[category.name] = new CategoryBudget(category.name, totalBudget[i], usedBudget)
     }
   }
 }
@@ -110,7 +113,7 @@ var BudgetsView = React.createClass({
 
     return (
         <div className="budgets_view">
-          <h2>{moment().format('MMMM YY')}</h2>
+          <h2>{moment("2015-09-01", "YYYY-MM-DD").format('MMMM YY')}</h2>
           <div id="budgets_chart"></div>
           <div className="button_add button_add_budget">
             <FloatingActionButton
@@ -128,6 +131,8 @@ var BudgetsView = React.createClass({
               modal={true}
               ref="createBudgetDialog">
             </Dialog>
+            <div>
+            </div>
           </div>
         </div>
       )
