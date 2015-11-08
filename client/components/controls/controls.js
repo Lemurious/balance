@@ -7,7 +7,9 @@ var Controls = React.createClass({
     return {
       data: [
         { text: 'Transactions' },
-        { text: 'Budgets' }
+        { text: 'Budgets' },
+        { text: 'Goals'},
+        { text: 'Settings'}
       ]
     };
   },
