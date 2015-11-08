@@ -1,0 +1,32 @@
+[
+  {
+    "id": "7QhIjngJ0dKPrSt1",
+    "name": "Restaurants",
+    "internalName": "food",
+    "parentCategory": null
+  },
+  {
+    "id": "G1R9xGnFL79xHoTP",
+    "name": "Grocery shopping",
+    "internalName": "groceries",
+    "parentCategory": null
+  },
+  {
+    "id": "M2hTw26zbYLRAqpD",
+    "name": "Housing",
+    "internalName": "housing",
+    "parentCategory": null
+  },
+  {
+    "id": "J0J2BLoj2RpO6CwA",
+    "name": "Entertainment",
+    "internalName": null,
+    "parentCategory": null
+  },
+  {
+    "id": "XEgao3Z6LLzxuLpf",
+    "name": "Transportation",
+    "internalName": "transportation",
+    "parentCategory": null
+  }
+]

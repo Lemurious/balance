@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "My deposit account",
+    "iban": "IT99T0322327567200972430163",
+    "bic": "UNCRITMM",
+    "balance": -1377.14,
+    "availableBalance": 1278.75,
+    "currency": "EUR",
+    "type": "deposit",
+    "active": true
+  },
+  {
+    "id": 2,
+    "name": "My investment account",
+    "iban": "IT53M0322370729082873319970",
+    "bic": "UNCRITMM",
+    "balance": -5828.37,
+    "availableBalance": 2942.76,
+    "currency": "EUR",
+    "type": "investment",
+    "active": true
+  },
+  {
+    "id": 3,
+    "name": "My investment account",
+    "iban": "IT18G0322394980059057489599",
+    "bic": "UNCRITMM",
+    "balance": 3228.55,
+    "availableBalance": 3959.55,
+    "currency": "EUR",
+    "type": "investment",
+    "active": true,
+  },
+  {
+    "id": 4,
+    "name": "My VISA card",
+    "iban": "",
+    "bic": "",
+    "balance": -2148.44,
+    "availableBalance": 1851.56,
+    "currency": "EUR",
+    "type": "creditcard",
+    "active": true
+  }
+]
