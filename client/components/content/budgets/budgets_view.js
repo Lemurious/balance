@@ -115,25 +115,6 @@ var BudgetsView = React.createClass({
         <div className="budgets_view">
           <h2>{moment("2015-09-01", "YYYY-MM-DD").format('MMMM YY')}</h2>
           <div id="budgets_chart"></div>
-          <div className="button_add button_add_budget">
-            <FloatingActionButton
-              mini={true}
-              secondary={true}
-              onClick={this.onShowNewTransaction}>
-              <span className="button_text">+</span>
-            </FloatingActionButton>
-          </div>
-          <div>
-            <Dialog
-              title="Dialog With Standard Actions"
-              actions={standardActions}
-              actionFocus="submit"
-              modal={true}
-              ref="createBudgetDialog">
-            </Dialog>
-            <div>
-            </div>
-          </div>
         </div>
       )
   },

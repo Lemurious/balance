@@ -132,12 +132,12 @@ var Content = React.createClass({
             hintText="Recipient IBAN"
             underlineFocusStyle={{borderColor: 'red'}} />
           <TextField
-            hintText="Recipient BIC"
-            underlineFocusStyle={{borderColor: 'red'}} />
-          <TextField
             hintText="Amount"
             underlineFocusStyle={{borderColor: 'red'}}
             onBlur={this.onSaveAmount} />
+          <TextField
+            hintText="Category"
+            underlineFocusStyle={{borderColor: 'red'}} />
           <TextField
             hintText="Note"
             underlineFocusStyle={{borderColor: 'red'}}
