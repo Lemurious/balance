@@ -7,6 +7,7 @@ import BudgetsView from './budgets/budgets_view.js';
 import FloatingActionButton from 'material-ui/lib/floating-action-button';
 import Dialog from 'material-ui/lib/dialog'
 import TextField from 'material-ui/lib/text-field'
+import format from '../../lib/format'
 
 var Content = React.createClass({
   getInitialState: function() {
@@ -92,7 +93,7 @@ var Content = React.createClass({
           primaryText={item.meta ? item.meta.commentValue : item.bankDescription}
           secondaryText={
             <span className={secondaryTextClass}>
-              {item.amount} {item.currency}
+              {format.currency(item.amount)} {item.currency}
             </span>
           } />
       );

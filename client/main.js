@@ -10,6 +10,8 @@ import './main.css';
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import BalanceTheme from './theme.js';
 
+import format from './lib/format.js';
+
 import Models from './models/';
 
 injectTapEventPlugin();
@@ -91,7 +93,7 @@ var App = React.createClass({
                 {this.state.data.user.lastName}
               </span>
               <span className="overall-balance">
-                {overallBalance} EUR
+                {format.currency(overallBalance)} EUR
               </span>
             </span>
           </span>
