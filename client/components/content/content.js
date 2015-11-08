@@ -116,10 +116,11 @@ var Content = React.createClass({
       var secondaryTextClass = item.amount > 0 ? 'pos' : 'neg';
       return (
         <ListItem
-          primaryText={item.meta ? item.meta.commentValue : item.bankDescription}
+          primaryText={item.valueDate}
           secondaryText={
-            <span className={secondaryTextClass}>
-              {format.currency(item.amount)} {item.currency}
+            <span>
+              <span className={secondaryTextClass}>{format.currency(item.amount)} {item.currency} </span>
+              <span>{item.meta ? item.meta.commentValue : item.bankDescription}</span>
             </span>
           } />
       );
