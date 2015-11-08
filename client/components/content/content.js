@@ -13,6 +13,7 @@ var Content = React.createClass({
   getInitialState: function() {
     return {
       newTransaction: {
+        valueDate: "2015-09-17",
         amount: null,
         currency: "EUR",
         meta: {
@@ -27,10 +28,33 @@ var Content = React.createClass({
   onTransactionSubmit: function() {
     this.refs.newTransactionDialog.dismiss()
   },
+  onSaveCategory: function(e) {
+    var cat_id_by_name = {
+      "Restaurants": "7QhIjngJ0dKPrSt1",
+      "Grocery shopping": "G1R9xGnFL79xHoTP",
+      "Housing": "M2hTw26zbYLRAqpD",
+      "Entertainment": "J0J2BLoj2RpO6CwA",
+      "Transportation": "XEgao3Z6LLzxuLpf"
+    }
+
+    this.setState({
+      newTransaction: {
+        category: cat_id_by_name[e.target.value],
+        currency: this.state.newTransaction.currency,
+        valueDate: this.state.newTransaction.valueDate,
+        amount: Number('-' + e.target.value),
+        meta: {
+          commentValue: this.state.newTransaction.meta.commentValue
+        }
+      }
+    })
+  },
   onSaveAmount: function(e) {
     this.setState({
       newTransaction: {
+        category: this.state.newTransaction.category,
         currency: this.state.newTransaction.currency,
+        valueDate: this.state.newTransaction.valueDate,
         amount: Number('-' + e.target.value),
         meta: {
           commentValue: this.state.newTransaction.meta.commentValue
@@ -41,7 +65,9 @@ var Content = React.createClass({
   onSaveDescription: function(e) {
     this.setState({
       newTransaction: {
+        category: this.state.newTransaction.category,
         currency: this.state.newTransaction.currency,
+        valueDate: this.state.newTransaction.valueDate,
         amount: this.state.newTransaction.amount,
         meta: {
           commentValue: e.target.value
@@ -132,12 +158,13 @@ var Content = React.createClass({
             hintText="Recipient IBAN"
             underlineFocusStyle={{borderColor: 'red'}} />
           <TextField
+            hintText="Category"
+            underlineFocusStyle={{borderColor: 'red'}}
+            onBlur={this.onSaveCategory} />
+          <TextField
             hintText="Amount"
             underlineFocusStyle={{borderColor: 'red'}}
             onBlur={this.onSaveAmount} />
-          <TextField
-            hintText="Category"
-            underlineFocusStyle={{borderColor: 'red'}} />
           <TextField
             hintText="Note"
             underlineFocusStyle={{borderColor: 'red'}}
