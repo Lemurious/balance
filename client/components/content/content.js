@@ -4,15 +4,21 @@ import List from 'material-ui/lib/lists/list'
 import ListItem from 'material-ui/lib/lists/list-item'
 import {Pie} from 'react-chartjs';
 import BudgetsView from './budgets/budgets_view.js';
+import FloatingActionButton from 'material-ui/lib/floating-action-button';
+import Dialog from 'material-ui/lib/dialog'
 
 var Content = React.createClass({
+
+  onShowNewTransaction: function() {
+    this.refs.newTransactionDialog.show()
+  },
   render: function() {
     var pieData = [
       {
         value: 100,
         color:"#F7464A",
         highlight: "#FF5A5E",
-        label: "Rent"
+        label: "Housing"
       },
       {
         value: 70,
@@ -24,13 +30,19 @@ var Content = React.createClass({
         value: 50,
         color: "#FDB45C",
         highlight: "#FFC870",
-        label: "Clothes"
+        label: "Clothing"
       },
       {
         value: 30,
         color: "#949494",
         highlight: "#C4C4C4",
-        label: "Cinema"
+        label: "Entertainment"
+      },
+      {
+        value: 15,
+        color: "#666666",
+        highlight: "#7F7F7F",
+        label: "Gifts"
       }
     ]
     var transactions = this.props.transactions.slice(0, 5)
@@ -46,6 +58,9 @@ var Content = React.createClass({
           } />
       );
     });
+    var standardActions = [
+      { text: 'Cancel' }
+    ]
     return (
       <div id="content">
         <div id="history">
@@ -56,7 +71,20 @@ var Content = React.createClass({
           <List>
             {transactionList}
           </List>
+          <FloatingActionButton
+            mini={true}
+            secondary={true}
+            onClick={this.onShowNewTransaction}>
+            <span className="button_text">+</span>
+          </FloatingActionButton>
         </div>
+        <Dialog
+          title="New Transaction"
+          actionFocus="submit"
+          actions={standardActions}
+          ref="newTransactionDialog">
+          The actions in this window are created from the json.
+        </Dialog>
         <div id="budgets">
           <h1>Budgets</h1>
           <BudgetsView />
