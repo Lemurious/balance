@@ -127,7 +127,6 @@ var BudgetsView = React.createClass({
               actionFocus="submit"
               modal={true}
               ref="createBudgetDialog">
-              The actions in this window are created from the json that's passed in.
             </Dialog>
           </div>
         </div>

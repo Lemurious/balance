@@ -6,15 +6,8 @@ var Controls = React.createClass({
   getInitialState: function() {
     return {
       data: [
-        {
-          text: 'History'
-        },
-        {
-          text: 'Budgets'
-        },
-        {
-          text: 'Goals'
-        }
+        { text: 'Transactions' },
+        { text: 'Budgets' }
       ]
     };
   },

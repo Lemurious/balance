@@ -103,11 +103,13 @@ var Content = React.createClass({
     ]
     return (
       <div id="content">
-        <div id="history">
-          <h1>History</h1>
+        <div id="transactions">
+          <h1>Transactions</h1>
+          <h3>Transactions overview</h3>
           <div className="pie-wrapper">
             <Pie data={pieData} />
           </div>
+          <h3>Latest Transactions</h3>
           <List>
             {transactionList}
           </List>
@@ -142,10 +144,9 @@ var Content = React.createClass({
         </Dialog>
         <div id="budgets">
           <h1>Budgets</h1>
-          <BudgetsView transactions={this.props.transactions} categories={this.props.categories} />
-        </div>
-        <div id="goals">
-          <h1>Goals</h1>
+          <BudgetsView
+            transactions={this.props.transactions}
+            categories={this.props.categories} />
         </div>
       </div>
     )
