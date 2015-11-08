@@ -81,7 +81,7 @@ var Content = React.createClass({
         label: "Gifts"
       }
     ]
-    if (this.state.newTransaction.amount && this.state.newTransaction.meta || this.state.bankDescription) {
+    if (this.state.newTransaction.amount && this.state.newTransaction.meta.commentValue) {
       this.props.transactions.unshift(this.state.newTransaction)
     }
     var transactions = this.props.transactions.slice(0, 5)
