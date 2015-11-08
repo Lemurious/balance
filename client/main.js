@@ -101,5 +101,10 @@ var App = React.createClass({
 main();
 
 function main() {
-  ReactDOM.render(<App />, document.getElementById('app'));
+  google.load("visualization", "1", {
+    packages: ['corechart', 'bar'],
+    callback: function() {
+      ReactDOM.render(<App />, document.getElementById('app'));
+    }
+  });
 }

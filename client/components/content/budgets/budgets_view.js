@@ -15,8 +15,13 @@ var TOTAL_BY_CATEGORY_STUB = {
   Gifts: 50
 }
 
-var getTotalByCategory = function(categoryName) {
-  return TOTAL_BY_CATEGORY_STUB[categoryName]
+var USED_BY_CATEGORY_STUB = {
+  Housing: 800,
+  Food: 320,
+  Entertainment: 230,
+  Clothing: 20,
+  Transportation: 150,
+  Gifts: 0
 }
 
 class Category {
@@ -26,25 +31,42 @@ class Category {
 }
 
 class Budget {
-  constructor(total) {
-    this.used = 0
+  constructor(total, used) {
+    this.used = (used || 0)
     this.total = total
   }
 }
 
 class CategoryBudget extends Budget {
-  constructor(total, categoryName) {
-    super(total)
+  constructor(categoryName, total, used) {
+    super(total, used)
     this.category = new Category(categoryName)
+  }
+
+  data() {
+    var exceeding = -1* Math.min(0, this.total - this.used)
+    var rest = Math.max(0, this.total - this.used)
+    return [this.category.name, this.used, rest, exceeding, 'fill: #e5e4e2' ]
   }
 }
 
 var Budgets = {
-  total: new Budget(TOTAL_MONTHLY_INCOMING)
+  total: new Budget(TOTAL_MONTHLY_INCOMING),
+  byCategories: {},
+
+  getCategoriesData: function() {
+    var result = []
+    for(var key in this.byCategories) {
+      var budget = this.byCategories[key]
+      result.push(budget.data())
+    }
+    return result
+  }
 }
 
-for(var name in defaultCategoriesNames) {
-  Budgets[name] = new CategoryBudget(getTotalByCategory(name), name)
+for(var i in defaultCategoriesNames) {
+  var name = defaultCategoriesNames[i]
+  Budgets.byCategories[name] = new CategoryBudget(name, TOTAL_BY_CATEGORY_STUB[name], USED_BY_CATEGORY_STUB[name])
 }
 
 var BudgetsView = React.createClass({
@@ -67,33 +89,31 @@ var BudgetsView = React.createClass({
   },
 
   drawCharts: function(){
-    var data = new google.visualization.arrayToDataTable([
-      ['', 'Used budget', 'Total budget'],
-      ['Food', 8175000, 8008000],
-      ['Housing', 3792000, 3694000],
-      ['Sport', 2695000, 2896000],
-      ['Gifts', 2099000, 1953000],
-      ['Others', 1526000, 1517000]]
-    );
-
+    var raw_data = [['', 'Used budget', 'Total budget', 'Exceeding budget', { role: 'style' }]].concat(Budgets.getCategoriesData())
+    console.log(raw_data)
+    var data = new google.visualization.arrayToDataTable(raw_data);
+    console.log("Color: ")
+    console.log([palette.accent1Color, palette.accent2Color, palette.primary1Color])
     var options = {
-      chartArea: {top: 200, width: '3%'},
-      legend: { position: 'none' },
-      isStacked: true,
-      hAxis: {
-        minValue: 0,
-      },
-      vAxis: {
-      },
-      bars: 'horizontal',
+      width: '50%',
       height: 400,
-      colors: [palette.accent1Color, palette.accent2Color]
+      legend: { position: 'none' },
+      stacked: true,
+      axes: {
+        x: {
+          0: { side: 'top'},
+        }
+      },
+      bars: 'horizontal'
+      //colors: [palette.accent1Color, palette.accent2Color, palette.primary1Color]
     };
 
     var chart = new google.charts.Bar(
       document.getElementById("budgets_chart")
     );
-    chart.draw(data, google.charts.Bar.convertOptions(options));
+
+    console.log(google.charts.Bar.convertOptions(options));
+    chart.draw(data, options);
   }
 })
 

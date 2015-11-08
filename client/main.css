@@ -52,3 +52,14 @@ body {
   color: #D8000C !important;
 }
 
+#budgets_chart rect[fill='4285f4'] {
+  fill: #4077B2;
+}
+
+#budgets_chart rect[fill='#81aef8'] {
+  fill: #F5F5F5;
+}
+
+#budgets_chart path[fill='#c0d6fb'] {
+  fill: #E2001A;
+}
