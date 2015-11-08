@@ -22,6 +22,10 @@ app.use(morgan('dev'));
 if (env === 'development') {
   app.use(errorhandler());
   app.set('json spaces', 2);
+  // Kill switch to prevent hanging server
+  app.get('/kill', function () {
+    proccess.exit(-1);
+  });
 }
 
 // Production only
