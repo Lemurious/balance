@@ -40,6 +40,10 @@ body {
   margin-left:-5px;
 }
 
+.pie-wrapper {
+  text-align: center;
+}
+
 .pos {
   color: #4F8A10 !important;
 }

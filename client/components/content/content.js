@@ -2,7 +2,7 @@ import React from 'react';
 import LinearProgress from 'material-ui/lib/linear-progress'
 import List from 'material-ui/lib/lists/list'
 import ListItem from 'material-ui/lib/lists/list-item'
-var PieChart = require("react-chartjs").Pie;
+import {Pie} from 'react-chartjs';
 import BudgetsView from './budgets/budgets.js';
 
 var Content = React.createClass({
@@ -50,7 +50,9 @@ var Content = React.createClass({
       <div id="content">
         <div id="history">
           <h1>History</h1>
-          <PieChart data={pieData} />
+          <div className="pie-wrapper">
+            <Pie data={pieData} />
+          </div>
           <List>
             {transactionList}
           </List>
