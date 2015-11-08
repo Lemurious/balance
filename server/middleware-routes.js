@@ -48,7 +48,9 @@ module.exports = function (app) {
     ];
 
     Promise.all(promises).then(function () {
-      res.type('json').send(resultData);
+      setTimeout(function () {
+        res.type('json').send(resultData);
+      }, 1000);
     }, function () {
       res.status(500).end();
     });
