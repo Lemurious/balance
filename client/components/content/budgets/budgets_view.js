@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment'
 import {palette} from './../../../theme.js'
 import FloatingActionButton from 'material-ui/lib/floating-action-button'
+import Dialog from 'material-ui/lib/dialog'
 
 var TOTAL_MONTHLY_INCOMING = 4000;
 
@@ -72,6 +73,11 @@ for(var i in defaultCategoriesNames) {
 
 var BudgetsView = React.createClass({
   render: function () {
+    let standardActions = [
+      { text: 'Cancel' },
+      { text: 'Submit', onTouchTap: this._onDialogSubmit, ref: 'submit' }
+    ];
+
     return (
         <div className="budgets_view">
           <h2>{moment().format('MMMM YY')}</h2>
@@ -80,6 +86,15 @@ var BudgetsView = React.createClass({
             <FloatingActionButton mini={true} secondary={true}>
               <span className="button_text">+</span>
             </FloatingActionButton>
+          </div>
+          <div>
+            <Dialog
+              title="Dialog With Standard Actions"
+              actions={standardActions}
+              actionFocus="submit"
+              modal={true}>
+              The actions in this window are created from the json that's passed in.
+            </Dialog>
           </div>
         </div>
       )
