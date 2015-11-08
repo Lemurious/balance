@@ -73,9 +73,6 @@ var App = React.createClass({
       content = (
         <span>
           <span className="account-info">
-            <span className="avatar">
-              <Avatar className="avatar-image" src="assets/images/avatar_mr.png" />
-            </span>
             <span className="name">
               <span className="firstName">
                 {this.state.data.user.firstName}

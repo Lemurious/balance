@@ -6,11 +6,41 @@ import {Pie} from 'react-chartjs';
 import BudgetsView from './budgets/budgets_view.js';
 import FloatingActionButton from 'material-ui/lib/floating-action-button';
 import Dialog from 'material-ui/lib/dialog'
+import TextField from 'material-ui/lib/text-field'
 
 var Content = React.createClass({
-
+  getInitialState: function() {
+    return {
+      newTransaction: {
+        description: null,
+        amount: null,
+        currency: "EUR"
+      }
+    }
+  },
   onShowNewTransaction: function() {
     this.refs.newTransactionDialog.show()
+  },
+  onTransactionSubmit: function() {
+    this.refs.newTransactionDialog.dismiss()
+  },
+  onSaveAmount: function(e) {
+    this.setState({
+      newTransaction: {
+        description: this.state.newTransaction.description,
+        currency: this.state.newTransaction.currency,
+        amount: Number(e.target.value)
+      }
+    })
+  },
+  onSaveDescription: function(e) {
+    this.setState({
+      newTransaction: {
+        description: e.target.value,
+        currency: this.state.newTransaction.currency,
+        amount: this.state.newTransaction.amount
+      }
+    })
   },
   render: function() {
     var pieData = [
@@ -45,6 +75,9 @@ var Content = React.createClass({
         label: "Gifts"
       }
     ]
+    if (this.state.newTransaction.amount && this.state.newTransaction.description) {
+      this.props.transactions.unshift(this.state.newTransaction)
+    }
     var transactions = this.props.transactions.slice(0, 5)
     var transactionList = transactions.map(function(item) {
       var secondaryTextClass = item.amount > 0 ? 'pos' : 'neg';
@@ -59,7 +92,8 @@ var Content = React.createClass({
       );
     });
     var standardActions = [
-      { text: 'Cancel' }
+      { text: 'Cancel' },
+      { text: 'Submit', onTouchTap: this.onTransactionSubmit, ref: 'submit' }
     ]
     return (
       <div id="content">
@@ -85,7 +119,20 @@ var Content = React.createClass({
           actionFocus="submit"
           actions={standardActions}
           ref="newTransactionDialog">
-          The actions in this window are created from the json.
+          <TextField
+            hintText="Recipient IBAN"
+            underlineFocusStyle={{borderColor: 'red'}} />
+          <TextField
+            hintText="Recipient BIC"
+            underlineFocusStyle={{borderColor: 'red'}} />
+          <TextField
+            hintText="Amount"
+            underlineFocusStyle={{borderColor: 'red'}}
+            onBlur={this.onSaveAmount} />
+          <TextField
+            hintText="Description"
+            underlineFocusStyle={{borderColor: 'red'}}
+            onBlur={this.onSaveDescription} />
         </Dialog>
         <div id="budgets">
           <h1>Budgets</h1>
