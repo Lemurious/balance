@@ -48,7 +48,7 @@ class CategoryBudget extends Budget {
   data() {
     var exceeding = -1* Math.min(0, this.total - this.used)
     var rest = Math.max(0, this.total - this.used)
-    return [this.category.name, this.used, rest, exceeding, 'fill: #e5e4e2' ]
+    return [this.category.name, Math.min(this.used, this.total), rest, exceeding, 'fill: #e5e4e2' ]
   }
 }
 
@@ -66,10 +66,6 @@ var Budgets = {
   },
 
   init: function(categories, transactions) {
-    console.log("In init!!!!")
-    console.log(categories)
-    console.log(transactions)
-
     for(var i in categories) {
       var category = categories[i]
       var curTrans = [];
@@ -82,12 +78,12 @@ var Budgets = {
 
       var totalBudget = 800;
       var usedBudget = 0;
-      curTrans.each(function(curTran) {
+      for(var i in curTrans) {
+        var curTran = curTrans[i]
         if(curTran.amount < 0) {
           usedBudget += (-1) * curTran.amount;
         }
-      })
-
+      }
       Budgets.byCategories[category.name] = new CategoryBudget(category.name, totalBudget, usedBudget)
     }
   }
