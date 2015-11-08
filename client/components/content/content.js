@@ -142,7 +142,7 @@ var Content = React.createClass({
         </Dialog>
         <div id="budgets">
           <h1>Budgets</h1>
-          <BudgetsView />
+          <BudgetsView transactions={this.props.transactions} categories={this.props.categories} />
         </div>
         <div id="goals">
           <h1>Goals</h1>

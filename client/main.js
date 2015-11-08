@@ -95,7 +95,7 @@ var App = React.createClass({
               </span>
             </span>
           </span>
-          <Content transactions={this.state.data.transactions}/>
+          <Content transactions={this.state.data.transactions} categories={{this.state.data.categories}/>
         </span>
       )
     }

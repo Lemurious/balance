@@ -63,13 +63,42 @@ var Budgets = {
       result.push(budget.data())
     }
     return result
+  },
+
+  init: function(categories, transactions) {
+    console.log("In init!!!!")
+    console.log(categories)
+    console.log(transactions)
+
+    for(var i in categories) {
+      var category = categories[i]
+      var curTrans = [];
+
+      transactions.filter(function (el) {
+        if(el.category == category.id) {
+          curTrans.push(el);
+        }
+      })
+
+      var totalBudget = 800;
+      var usedBudget = 0;
+      curTrans.each(function(curTran) {
+        if(curTran.amount < 0) {
+          usedBudget += (-1) * curTran.amount;
+        }
+      })
+
+      Budgets.byCategories[category.name] = new CategoryBudget(category.name, totalBudget, usedBudget)
+    }
   }
 }
 
+/*
 for(var i in defaultCategoriesNames) {
   var name = defaultCategoriesNames[i]
   Budgets.byCategories[name] = new CategoryBudget(name, TOTAL_BY_CATEGORY_STUB[name], USED_BY_CATEGORY_STUB[name])
 }
+*/
 
 var BudgetsView = React.createClass({
   onShowDialogCreateBudget: function() {
@@ -81,6 +110,7 @@ var BudgetsView = React.createClass({
       { text: 'Cancel' },
       { text: 'Submit', onTouchTap: this._onDialogSubmit, ref: 'submit' }
     ];
+    Budgets.init(this.props.categories, this.props.transactions)
 
     return (
         <div className="budgets_view">
