@@ -68,9 +68,12 @@ body {
   margin-right: 12px;
 }
 
-.button_add_category {
-  margin-left: 66px;
-  margin-top: 26px;
+.button_add {
+  margin-left: 15px;
+}
+
+.button_add_budget {
+  margin-top: 14px;
 }
 
 .button_text {

@@ -71,12 +71,14 @@ var Content = React.createClass({
           <List>
             {transactionList}
           </List>
-          <FloatingActionButton
-            mini={true}
-            secondary={true}
-            onClick={this.onShowNewTransaction}>
-            <span className="button_text">+</span>
-          </FloatingActionButton>
+          <div className="button_add">
+            <FloatingActionButton
+              mini={true}
+              secondary={true}
+              onClick={this.onShowNewTransaction}>
+              <span className="button_text">+</span>
+            </FloatingActionButton>
+          </div>
         </div>
         <Dialog
           title="New Transaction"
