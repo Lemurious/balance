@@ -128,7 +128,7 @@ var BudgetsView = React.createClass({
   },
 
   drawCharts: function(){
-    var raw_data = [['', 'Used budget', 'Total budget', 'Exceeded budget', { role: 'style' }]].concat(Budgets.getCategoriesData())
+    var raw_data = [['', 'Used budget', 'Remaining budget', 'Exceeded budget', { role: 'style' }]].concat(Budgets.getCategoriesData())
     var data = new google.visualization.arrayToDataTable(raw_data);
 
     var options = {
