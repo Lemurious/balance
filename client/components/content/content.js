@@ -8,6 +8,7 @@ import FloatingActionButton from 'material-ui/lib/floating-action-button';
 import Dialog from 'material-ui/lib/dialog'
 import TextField from 'material-ui/lib/text-field'
 import format from '../../lib/format'
+import moment from 'moment'
 
 var Content = React.createClass({
   getInitialState: function() {
@@ -116,7 +117,7 @@ var Content = React.createClass({
       var secondaryTextClass = item.amount > 0 ? 'pos' : 'neg';
       return (
         <ListItem
-          primaryText={item.valueDate}
+          primaryText={moment(item.valueDate, "YYYY-MM-DD").format('DD.MM.YYYY')}
           secondaryText={
             <span>
               <span className={secondaryTextClass}>{format.currency(item.amount)} {item.currency} </span>
@@ -131,6 +132,7 @@ var Content = React.createClass({
     ]
     return (
       <div id="content">
+        <div id="main-date">17.8.2015</div>
         <div id="budgets">
           <h1>Budgets</h1>
           <BudgetsView

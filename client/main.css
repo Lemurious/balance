@@ -87,3 +87,7 @@ body {
 #transactions {
   margin-top: 75px;
 }
+
+#main-date {
+  float: right;
+}
