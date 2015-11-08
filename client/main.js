@@ -65,7 +65,7 @@ var App = React.createClass({
     } else {
       var accountsBalance = [];
       this.state.data.accounts.forEach(function(item) {
-        accountsBalance.push(item.account.balance)
+        accountsBalance.push(item.balance)
       })
       var overallBalance = accountsBalance.reduce(function(previous, current) {
         return previous + current;
