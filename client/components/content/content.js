@@ -30,7 +30,7 @@ var Content = React.createClass({
     this.setState({
       newTransaction: {
         currency: this.state.newTransaction.currency,
-        amount: Number(e.target.value),
+        amount: Number('-' + e.target.value),
         meta: {
           commentValue: this.state.newTransaction.meta.commentValue
         }
