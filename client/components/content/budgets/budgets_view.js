@@ -90,10 +90,8 @@ var BudgetsView = React.createClass({
 
   drawCharts: function(){
     var raw_data = [['', 'Used budget', 'Total budget', 'Exceeding budget', { role: 'style' }]].concat(Budgets.getCategoriesData())
-    console.log(raw_data)
     var data = new google.visualization.arrayToDataTable(raw_data);
-    console.log("Color: ")
-    console.log([palette.accent1Color, palette.accent2Color, palette.primary1Color])
+
     var options = {
       width: '50%',
       height: 400,
@@ -112,7 +110,6 @@ var BudgetsView = React.createClass({
       document.getElementById("budgets_chart")
     );
 
-    console.log(google.charts.Bar.convertOptions(options));
     chart.draw(data, options);
   }
 })
