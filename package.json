@@ -40,6 +40,9 @@
   "private": true,
   "license": "proprietary",
   "scripts": {
+    "b": "npm run build",
+    "w": "npm run watch",
+    "s": "npm run watch-server",
     "build": "webpack",
     "watch": "webpack --progress --colors --watch",
     "start": "node index.js",
