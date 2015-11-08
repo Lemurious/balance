@@ -10,7 +10,7 @@ function formatCurrency (number) {
   } else {
     text = (number + '0').replace(/\.(\d\d)0?$/, ',$1');
   }
-  text = text.replace(/(\d{3}),/, '.$1,').replace(/(\d{3})\./, '$1.');
+  text = text.replace(/(\d)(\d{3}),/, '$1.$2,').replace(/(\d{3})\./, '$1.');
   return text;
 }
 
