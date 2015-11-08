@@ -1,4 +1,4 @@
-module.exports = function accountAPI (api) {
+module.exports = function transactionAPI (api) {
   api.getAllTransactions = getAllTransactions;
   api.getOneTransaction = getOneTransaction;
 };

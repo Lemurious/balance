@@ -30,6 +30,30 @@ module.exports = function (app) {
     handleApiRequest(api.getOneCategory('mario.rossi', req.params.id), req, res);
   });
 
+  app.get('/api/initial-data', function (req, res) {
+    var resultData = {};
+    var promises = [
+      api.getAllAccounts('mario.rossi').then(function (accounts) {
+        resultData.accounts = accounts;
+      }),
+      api.getAllTransactions('mario.rossi').then(function (transactions) {
+        resultData.transactions = transactions;
+      }),
+      api.getAllCategories('mario.rossi').then(function (categories) {
+        resultData.categories = categories;
+      }),
+      api.getUser('mario.rossi').then(function (user) {
+        resultData.user = user;
+      })
+    ];
+
+    Promise.all(promises).then(function () {
+      res.type('json').send(resultData);
+    }, function () {
+      res.status(500).end();
+    });
+  });
+
 };
 
 // Promise handling for api calls
