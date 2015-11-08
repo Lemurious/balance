@@ -12,9 +12,11 @@ var Content = React.createClass({
   getInitialState: function() {
     return {
       newTransaction: {
-        description: null,
         amount: null,
-        currency: "EUR"
+        currency: "EUR",
+        meta: {
+          commentValue: null
+        }
       }
     }
   },
@@ -27,18 +29,22 @@ var Content = React.createClass({
   onSaveAmount: function(e) {
     this.setState({
       newTransaction: {
-        description: this.state.newTransaction.description,
         currency: this.state.newTransaction.currency,
-        amount: Number(e.target.value)
+        amount: Number(e.target.value),
+        meta: {
+          commentValue: this.state.newTransaction.meta.commentValue
+        }
       }
     })
   },
   onSaveDescription: function(e) {
     this.setState({
       newTransaction: {
-        description: e.target.value,
         currency: this.state.newTransaction.currency,
-        amount: this.state.newTransaction.amount
+        amount: this.state.newTransaction.amount,
+        meta: {
+          commentValue: e.target.value
+        }
       }
     })
   },
@@ -75,7 +81,7 @@ var Content = React.createClass({
         label: "Gifts"
       }
     ]
-    if (this.state.newTransaction.amount && this.state.newTransaction.description) {
+    if (this.state.newTransaction.amount && this.state.newTransaction.meta || this.state.bankDescription) {
       this.props.transactions.unshift(this.state.newTransaction)
     }
     var transactions = this.props.transactions.slice(0, 5)
@@ -130,7 +136,7 @@ var Content = React.createClass({
             underlineFocusStyle={{borderColor: 'red'}}
             onBlur={this.onSaveAmount} />
           <TextField
-            hintText="Description"
+            hintText="Note"
             underlineFocusStyle={{borderColor: 'red'}}
             onBlur={this.onSaveDescription} />
         </Dialog>
