@@ -130,6 +130,12 @@ var Content = React.createClass({
     ]
     return (
       <div id="content">
+        <div id="budgets">
+          <h1>Budgets</h1>
+          <BudgetsView
+            transactions={this.props.transactions}
+            categories={this.props.categories} />
+        </div>
         <div id="transactions">
           <h1>Transactions</h1>
           <h3>Transactions overview</h3>
@@ -170,12 +176,6 @@ var Content = React.createClass({
             underlineFocusStyle={{borderColor: 'red'}}
             onBlur={this.onSaveDescription} />
         </Dialog>
-        <div id="budgets">
-          <h1>Budgets</h1>
-          <BudgetsView
-            transactions={this.props.transactions}
-            categories={this.props.categories} />
-        </div>
       </div>
     )
   }

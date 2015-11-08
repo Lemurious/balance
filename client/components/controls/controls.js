@@ -6,10 +6,11 @@ var Controls = React.createClass({
   getInitialState: function() {
     return {
       data: [
-        { text: 'Transactions' },
         { text: 'Budgets' },
+        { text: 'Transactions' },
         { text: 'Goals'},
-        { text: 'Settings'}
+        { text: 'Settings'},
+        { text: 'Logout'}
       ]
     };
   },
@@ -33,7 +34,7 @@ var Controls = React.createClass({
             onClick={this.onNavClick} />
       </div>
     )
-  } 
+  }
 })
 
 module.exports = Controls
