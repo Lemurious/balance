@@ -72,6 +72,10 @@ for(var i in defaultCategoriesNames) {
 }
 
 var BudgetsView = React.createClass({
+  onShowDialogCreateBudget: function() {
+    this.refs.createBudgetDialog.show()
+  },
+
   render: function () {
     let standardActions = [
       { text: 'Cancel' },
@@ -83,7 +87,10 @@ var BudgetsView = React.createClass({
           <h2>{moment().format('MMMM YY')}</h2>
           <div id="budgets_chart"></div>
           <div className="button_add button_add_budget">
-            <FloatingActionButton mini={true} secondary={true}>
+            <FloatingActionButton
+              mini={true}
+              secondary={true}
+              onClick={this.onShowNewTransaction}>
               <span className="button_text">+</span>
             </FloatingActionButton>
           </div>
@@ -92,7 +99,8 @@ var BudgetsView = React.createClass({
               title="Dialog With Standard Actions"
               actions={standardActions}
               actionFocus="submit"
-              modal={true}>
+              modal={true}
+              ref="createBudgetDialog">
               The actions in this window are created from the json that's passed in.
             </Dialog>
           </div>
