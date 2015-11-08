@@ -1,0 +1,22 @@
+{
+  "userId": "mario.rossi",
+  "firstName": "Mario",
+  "lastName": "Rossi",
+  "gender": "M",
+  "title": "Mr.",
+  "birthdate": "1995-05-15",
+  "nationality": "Italian",
+  "address": {
+    "street": "Via Piave",
+    "streetNumber": "32",
+    "postCode": "70911",
+    "city": "Pavia",
+    "stateProvince": "Sicilia",
+    "country": "Italy"
+  },
+  "email": "mario.rossi@provider1.com",
+  "phone": "344 013 2425",
+  "mobile": "344 013 2424",
+  "preferredLanguage": "ITA",
+  "lastLogin": "2015-09-11"
+}

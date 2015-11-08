@@ -10,7 +10,16 @@ import './main.css';
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import BalanceTheme from './theme.js';
 
+import Models from './models/';
+
 injectTapEventPlugin();
+
+var app = {
+  Models: Models
+}
+
+// debug TODO remove me
+window.app = app;
 
 var App = React.createClass({
   //the key passed through context must be called "muiTheme"
@@ -65,7 +74,7 @@ var App = React.createClass({
     } else {
       var accountsBalance = [];
       this.state.data.accounts.forEach(function(item) {
-        accountsBalance.push(item.account.balance)
+        accountsBalance.push(item.balance)
       })
       var overallBalance = accountsBalance.reduce(function(previous, current) {
         return previous + current;
